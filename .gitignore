@@ -32,3 +32,6 @@ site/
 # OS
 Thumbs.db
 .DS_Store
+
+# docs
+0000-00-00.md
