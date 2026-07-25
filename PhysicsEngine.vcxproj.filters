@@ -38,5 +38,17 @@
     <ClInclude Include="include\harukas\detail\ArrayAccessor1-inl.h">
       <Filter>include\harukas\detail</Filter>
     </ClInclude>
+    <ClInclude Include="include\harukas\Macros.h">
+      <Filter>include\harukas</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harukas\Parallel.h">
+      <Filter>include\harukas</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harukas\detail\Parallel-inl.h">
+      <Filter>include\harukas\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harukas\Constants.h">
+      <Filter>include\harukas</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

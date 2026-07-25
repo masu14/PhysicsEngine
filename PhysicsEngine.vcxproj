@@ -128,7 +128,11 @@
   <ItemGroup>
     <ClInclude Include="include\harukas\ArrayAccessor.h" />
     <ClInclude Include="include\harukas\ArrayAccessor1.h" />
+    <ClInclude Include="include\harukas\Constants.h" />
     <ClInclude Include="include\harukas\detail\ArrayAccessor1-inl.h" />
+    <ClInclude Include="include\harukas\detail\Parallel-inl.h" />
+    <ClInclude Include="include\harukas\Macros.h" />
+    <ClInclude Include="include\harukas\Parallel.h" />
     <ClInclude Include="include\harukas\Vector3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
