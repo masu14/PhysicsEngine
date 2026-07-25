@@ -1,0 +1,27 @@
+site_name: Physics Engine Study Notes
+site_description: 物理エンジンの学習と実装記録
+
+theme:
+  name: material
+  language: ja
+  features:
+    - navigation.sections
+    - navigation.top
+    - toc.follow
+    - content.code.copy
+
+nav:
+  - ホーム: index.md
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+
+extra_javascript:
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js

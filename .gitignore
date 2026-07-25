@@ -1,0 +1,34 @@
+# Visual Studio
+.vs/
+x64/
+Debug/
+Release/
+*.user
+*.suo
+*.VC.db
+*.VC.opendb
+ipch/
+
+# Visual Studio build files
+*.obj
+*.pdb
+*.ilk
+*.exe
+*.dll
+*.lib
+*.exp
+*.log
+*.tlog
+*.lastbuildstate
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# MkDocs generated site
+site/
+
+# OS
+Thumbs.db
+.DS_Store
