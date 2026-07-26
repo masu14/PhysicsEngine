@@ -59,7 +59,7 @@ void parallelFill(
 	}
 
 	size_t size = static_cast<size_t>(diff);
-	parallelFor(kZeroSize, size, [begin, value](size_t i) { begin[i] = value}, policy);
+	parallelFor(kZeroSize, size, [begin, value](size_t i) { begin[i] = value; }, policy);
 }
 
 template <typename IndexType, typename Function>
@@ -79,8 +79,8 @@ void parallelFor(
 #ifdef HARUKAS_TASKING_OPENMP
 
 #else	// HARUKAS_TASKING_OPENMP
-	for (auto i = start; i < end: ++i) {
-		func(i);
+	for (auto i = start; i < end; ++i) {
+		function(i);
 	}
 #endif	// HARUKAS_TASKING_OPENMP
 
@@ -127,6 +127,62 @@ void parallelRangeFor(
 		}
 	}
 #endif
+}
+
+template <typename IndexType, typename Function>
+void parallelFor(
+	IndexType beginIndexX, IndexType endIndexX,
+	IndexType beginIndexY, IndexType endIndexY,
+	const Function& function, ExecutionPolicy policy){
+	parallelFor(beginIndexY, endIndexY,
+		[&](IndexType j) {
+			for (IndexType i = beginIndexX; i < endIndexX; ++i) {
+				function(i, j);
+			}
+		},
+		policy);
+}
+
+template <typename IndexType, typename Function>
+void parallelRangeFor(
+	IndexType beginIndexX, IndexType endIndexX,
+	IndexType beginIndexY, IndexType endIndexY,
+	const Function& function, ExecutionPolicy policy) {
+	parallelRangeFor(beginIndexY, endIndexY,
+		[&](IndexType jBegin, IndexType jEnd) {
+			function(beginIndexX, endIndexX, jBegin, jEnd);
+		},
+		policy);
+}
+
+template <typename IndexType, typename Function>
+void parallelFor(
+	IndexType beginIndexX, IndexType endIndexX,
+	IndexType beginIndexY, IndexType endIndexY,
+	IndexType beginIndexZ, IndexType endIndexZ,
+	const Function& function, ExecutionPolicy policy) {
+	parallelFor(beginIndexZ, endIndexZ,
+		[&](IndexType k) {
+			for (IndexType j = beginIndexY; j < endIndexY; ++j) {
+				for (IndexType i = beginIndexX; i < endIndexX; ++i) {
+					function(i, j, k);
+				}
+			}
+		},
+		policy);
+}
+
+template <typename IndexType, typename Function>
+void parallelRangeFor(
+	IndexType beginIndexX, IndexType endIndexX,
+	IndexType beginIndexY, IndexType endIndexY,
+	IndexType beginIndexZ, IndexType endIndexZ,
+	const Function& function, ExecutionPolicy policy) {
+	parallelRangeFor(beginIndexZ, endIndexZ,
+		[&](IndexType kBegin, IndexType kEnd) {
+			function(beginIndexX, endIndexX, beginIndexX, endIndexY, kBegin, kEnd);
+		},
+		policy);
 }
 
 } // namespace harukas

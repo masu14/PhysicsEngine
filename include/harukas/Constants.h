@@ -9,7 +9,7 @@
 namespace harukas {
 
 	constexpr size_t kZeroSize = 0;
-	constexpr ssize_t kZeroSize = 0;
+	constexpr ssize_t kZeroSSize = 0;
 
 } // namespace harukas
 

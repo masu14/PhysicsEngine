@@ -50,5 +50,23 @@
     <ClInclude Include="include\harukas\Constants.h">
       <Filter>include\harukas</Filter>
     </ClInclude>
+    <ClInclude Include="include\harukas\Array.h">
+      <Filter>include\harukas</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harukas\Size.h">
+      <Filter>include\harukas</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harukas\Point.h">
+      <Filter>include\harukas</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harukas\detail\Point-inl.h">
+      <Filter>include\harukas\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harukas\Array1.h">
+      <Filter>include\harukas</Filter>
+    </ClInclude>
+    <ClInclude Include="include\harukas\detail\Array1-inl.h">
+      <Filter>include\harukas\detail</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
