@@ -11,15 +11,15 @@ template <typename T>
 class Array<T, 1> final {
 	
 public:
-	typedef std::vector<T> ContainerType;
-	typedef typename ContainerType::iterator Iterator;
-	typedef typename ContainerType::const_iterator ConstIterator;
+	using ContainerType = std::vector<T>;
+	using Iterator = typename ContainerType::iterator;
+	using ConstIterator = typename ContainerType::const_iterator;
 
 	Array();
 	explicit Array(size_t size, const T& initVal = T());
 	Array(const std::initializer_list<T>& lst);
 	Array(const Array& other);
-	Array(Array&& other);
+	Array(Array&& other) noexcept;
 
 	void set(const T& value);
 	void set(const Array& other);
@@ -59,9 +59,10 @@ public:
 
 	T& operator[](size_t i);
 	const T& operator[](size_t i) const;
+
 	Array& operator=(const T& other);
 	Array& operator=(const Array& other);
-	Array& operator=(Array&& other);
+	Array& operator=(Array&& other) noexcept;
 	Array& operator=(const std::initializer_list<T>& lst);
 
 	operator ArrayAccessor1<T>();
