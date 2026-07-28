@@ -60,7 +60,7 @@ public:
 	T& operator[](size_t i);
 	const T& operator[](size_t i) const;
 
-	Array& operator=(const T& other);
+	Array& operator=(const T& value);
 	Array& operator=(const Array& other);
 	Array& operator=(Array&& other) noexcept;
 	Array& operator=(const std::initializer_list<T>& lst);

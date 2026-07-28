@@ -157,6 +157,50 @@ void Array<T, 1>::parallelForEachIndex(Callback func) const {
 	constAccessor().parallelForEachIndex(func);
 }
 
+template <typename T>
+T& Array<T, 1>::operator[](size_t i) {
+	return _data[i];
+}
+
+template <typename T>
+const T& Array<T, 1>::operator[](size_t i) const {
+	return _data[i];
+}
+
+template <typename T>
+Array<T, 1>& Array<T, 1>::operator=(const T& value) {
+	set(value);
+	return *this;
+}
+
+template <typename T>
+Array<T, 1>& Array<T, 1>::operator=(const Array& other) {
+	set(other);
+	return *this;
+}
+
+template <typename T>
+Array<T, 1>& Array<T, 1>::operator=(Array&& other) {
+	_data = std::move(other._data);
+	return *this;
+}
+
+template <typename T>
+Array<T, 1>& Array<T, 1>::operator=(const std::initializer_list<T>& lst) {
+	set(lst);
+	return *this;
+}
+
+template <typename T>
+Array<T, 1>::operator ArrayAccessor1<T>(){
+	return accessor();
+}
+
+template <typename T>
+Array<T, 1>::operator ConstArrayAccessor1<T>() const {
+	return constAccessor();
+}
+
 } // namespace harukas
 
 #endif // INCLUDE_HARUKAS_DETAIL_ARRAY1_INL_H_
